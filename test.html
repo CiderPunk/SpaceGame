@@ -1,0 +1,59 @@
+<html>  
+  <head>  
+    <title>game</title>  
+
+
+		<!-- system -->
+		<script type="text/javascript" src="scripts/Inheritance.js"></script>
+		<script type="text/javascript" src="scripts/Global.js"></script>
+		<script type="text/javascript" src="scripts/Utils.js"></script>
+		<script type="text/javascript" src="scripts/Frame.js"></script>
+		<script type="text/javascript" src="scripts/Entity.js"></script>
+		
+		<script type="text/javascript" src="scripts/Player.js"></script>
+		<script type="text/javascript" src="scripts/Map.js"></script>
+
+		<script type="text/javascript" src="scripts/ResourceMan.js"></script>
+		<script type="text/javascript" src="scripts/Game.js"></script>
+
+		<!-- data -->
+		<script type="text/javascript">  
+
+				
+window.onload=function(){
+	Debug.init('debug');
+	Debug.output('Debug started');
+	FrameCount.init('counter');
+
+	
+
+	var oGame = new Game('e'); 
+
+	var oMap = new Map('test level', 'levels/test1/map.gif','levels/test1/map.gif');
+
+	oGame.setMap(oMap);
+}
+
+		</script>
+
+
+    <style type="text/css">
+			html{font-family:verdana, arial; font-size:70%;}
+      canvas { border: 1px solid black;	} 
+			div#debug{width:336px; height:400px; margin-left:1px; overflow:auto; border:1px solid #000; margin-top:1em; 			padding:4px; float:left;}
+			div#counter{width:40px; float:right; bordeR:1px solid #000; padding:4px;}
+    </style>  
+  </head>  
+  <body>  
+
+<div id="counter">fps</div>
+
+<canvas id="e" width="640" height="480" style="float:left"></canvas>  
+
+
+<div id="debug">
+	Debug:
+</div>
+
+  </body>  
+</html>  
