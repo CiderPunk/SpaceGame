@@ -1,5 +1,5 @@
 
-var Debug = new  function Debug(){
+var Debug = new function Debug(){
 
 	var eOutput = null;
 
@@ -16,10 +16,10 @@ var Debug = new  function Debug(){
 }
 
 
-var FrameCount = new function FrameCount(){
+var FrameCount = new function(){
 	var self = this;
 	var eOutput = null;
-	var timer = setInterval(function(){ self.update() }, 1000);
+	var timer = setInterval(function(){ self.update(); }, 1000);
 	var iCount = 0;
 	var dTime = new Date();
 	var bEnabled = false;
@@ -28,7 +28,7 @@ var FrameCount = new function FrameCount(){
 	this.init = function(sElName){
 		eOutput = document.getElementById(sElName);
 		bEnabled = true;
-	}
+	};
 
 	this.update= function(){
 
@@ -39,12 +39,11 @@ var FrameCount = new function FrameCount(){
 			iCount = 0;
 		}
 
-	}
+	};
 
 	this.addFrame = function(){
 		iCount++;
-	}
+	};
 
 
-}
-
+}();
