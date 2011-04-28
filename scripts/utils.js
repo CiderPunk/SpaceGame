@@ -5,15 +5,15 @@ var Debug = new function Debug(){
 
 	this.init = function(sElName){
 		eOutput = document.getElementById("debug");
-	}
+	};
 
 	this.output = function(sMessage){
 		if (eOutput)
 		{
 			eOutput.innerHTML += '<br/>' + sMessage;
 		}
-	}
-}
+	};
+};
 
 
 var FrameCount = new function(){
@@ -44,6 +44,4 @@ var FrameCount = new function(){
 	this.addFrame = function(){
 		iCount++;
 	};
-
-
-}();
+};
