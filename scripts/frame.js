@@ -1,6 +1,6 @@
 
 var Frame = PClass.create({
-
+  oMap:null,
 	init: function(aData){
 		this.img = ResMan.getImage(aData[0]);
 		this.xp = aData[1];

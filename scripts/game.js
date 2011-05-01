@@ -30,6 +30,7 @@ var i = 0;
 	this.drawFrame=function(){
 		if (ResMan.isReady()){
       if (oMap !== undefined){
+        oMap.update();
         oMap.draw(oCtx, 0,0);
         //oFrame.drawRot(oCtx, 50,50,i);
       }

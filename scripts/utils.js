@@ -1,12 +1,14 @@
 
-var Debug = new function Debug(){
+var Debug = new function(){
 
 	var eOutput = null;
-
+  
+  //initialize debug function with containing div name..
 	this.init = function(sElName){
 		eOutput = document.getElementById("debug");
 	};
-
+  
+  //output debug message
 	this.output = function(sMessage){
 		if (eOutput)
 		{

@@ -5,7 +5,7 @@ var Map = PClass.create({
 	aEnts: [],
 
 	init: function(sName, sGraphic, sCollisionMap){
-		oGraphic = document.createElement('canvas');;
+		oGraphic = document.createElement('canvas');
 		var oColMap = document.createElement('canvas');
 		ResMan.loadImage(sName = '_map', sGraphic, function(img){
 			oGraphic.width = img.width;
@@ -24,10 +24,27 @@ var Map = PClass.create({
 		});
 	},
 
+  update: function(){
+
+    for (var iEnt in this.aEnts){
+       this.aEnts[iEnt].update(this); 
+    }
+
+  },
 
 	draw: function(oCtx, x,y){
-		oCtx.drawImage(oGraphic, x,y,640,480,0,0,640,480);
-	}
+    //draw background
+		oCtx.drawImage(oGraphic,x,y,640,480,0,0,640,480);
+    
+    for (var iEnt in this.aEnts){
+       this.aEnts[iEnt].draw(oCtx,x,y); 
+    }
+
+	},
+
+  addEnt: function(oEnt){
+    this.aEnts.push(oEnt);
+  }
 
 
-})
+});

@@ -1,31 +1,6 @@
-var InputMan = function inputman(){
-  var self = this;
-  
+var InputMan = new function(){
   var oState = {};
-  
-  
-  var oKeyConfig = {
-    38: "up",
-    40: "down",
-    37: "left",
-    39: "right",
-    32: "fire"
-  };
-  
-  
-  this.setKey = function(iKeyCode, sFunc){
-    oKeyConfig[iKeyCode] = sFunc;
-  };
-  
-  this.clearKey = function(iKeyCode){
-    oKeyConfig[iKeyCode] = undefined; 
-  };
-  
-  
-  this.state = function(sFunc){
-    return oState[sFunc];  
-  };
-  
+  var oKeyConfig = {};
   
   var doKeyUp = function(e){
     var sFunc = oKeyConfig[e.keyCode];
@@ -45,11 +20,20 @@ var InputMan = function inputman(){
     }
   };
   
-  
-  
-  
   window.addEventListener('keydown', doKeyDown, true);
   window.addEventListener('keyup', doKeyUp,true);
-  
 
-}();
+
+  this.setKey = function(iKeyCode, sFunc){
+    oKeyConfig[iKeyCode] = sFunc;
+  };
+  
+  this.clearKey = function(iKeyCode){
+    oKeyConfig[iKeyCode] = undefined; 
+  };
+  
+  this.state = function(sFunc){
+    return oState[sFunc];  
+  };
+
+};

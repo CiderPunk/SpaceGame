@@ -3,7 +3,8 @@
     <title>game</title>  
 
 
-		<!-- system -->
+		<!-- system -->  	
+    <script type="text/javascript" src="scripts/input.js"></script>
 		<script type="text/javascript" src="scripts/inheritance.js"></script>
 		<script type="text/javascript" src="scripts/global.js"></script>
 		<script type="text/javascript" src="scripts/utils.js"></script>
@@ -15,7 +16,7 @@
 
 		<script type="text/javascript" src="scripts/resourceman.js"></script>
 		<script type="text/javascript" src="scripts/game.js"></script>
-  	<script type="text/javascript" src="scripts/input.js"></script>
+
 
 		<!-- data -->
 		<script type="text/javascript">  
@@ -26,13 +27,23 @@ window.onload=function(){
 	Debug.output('Debug started');
 	FrameCount.init('counter');
 
-	
 
-	var oGame = new Game('e'); 
+  Debug.output("initializing controls");
+  
+  InputMan.setKey(38,"up");
+  InputMan.setKey(40,"down");
+  InputMan.setKey(37,"left");
+  InputMan.setKey(39,"right");
+  InputMan.setKey(32,"fire");  
 
+
+Debug.output("creating game");
+	var oGame = new Game('e');
 	var oMap = new Map('test level', 'levels/test1/map.gif','levels/test1/map.gif');
-
-	oGame.setMap(oMap);
+  var oPlayer = new Player(200,200);
+	
+  oMap.addEnt(oPlayer);
+  oGame.setMap(oMap);
 }
 
 		</script>

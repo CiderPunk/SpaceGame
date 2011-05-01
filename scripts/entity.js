@@ -1,23 +1,23 @@
 var Entity = PClass.create({
-	
 	X:0,
 	Y:0,
 	dX:0,
 	dY:0,
 
-	init:function(oMap,x,y){
-
+	init:function(x,y){
+    X=x;
+    Y=y;
 	},
 
-	update:function(){
+	update:function(oMap){
 		X+=dX;
 		Y+=dY;
 	},
-
-	draw: function(x,y){
-	}
-
-
+  
+	draw: function(oCtx,xoffs,yoffs){
+	  
+  
+  }
 });
 
 var Projectile = Entity.extend({

@@ -1,5 +1,4 @@
 var ResMan = new function(){
-	
 	var self = this;
 	var iLoadCount = 0;
 	this.aImageLib = {};
