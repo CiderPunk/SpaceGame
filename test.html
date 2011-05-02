@@ -4,6 +4,7 @@
 
 
 		<!-- system -->  	
+    <script type="text/javascript" src="scripts/coord.js"></script>
     <script type="text/javascript" src="scripts/input.js"></script>
 		<script type="text/javascript" src="scripts/inheritance.js"></script>
 		<script type="text/javascript" src="scripts/global.js"></script>
@@ -40,7 +41,7 @@ window.onload=function(){
 Debug.output("creating game");
 	var oGame = new Game('e');
 	var oMap = new Map('test level', 'levels/test1/map.gif','levels/test1/map.gif');
-  var oPlayer = new Player(200,200);
+  var oPlayer = new Player(new Coord(200,200));
 	
   oMap.addEnt(oPlayer);
   oGame.setMap(oMap);

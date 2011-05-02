@@ -1,4 +1,9 @@
 var Map = PClass.create({
+  
+  Gravity: new Coord(0,5),
+  Friction: 0.5,
+  
+  
 	oGraphic: null,
 	oGCtx: null,
 	oCCtx: null,
@@ -25,22 +30,26 @@ var Map = PClass.create({
 	},
 
   update: function(){
-
     for (var iEnt in this.aEnts){
        this.aEnts[iEnt].update(this); 
     }
-
   },
 
 	draw: function(oCtx, x,y){
     //draw background
 		oCtx.drawImage(oGraphic,x,y,640,480,0,0,640,480);
-    
     for (var iEnt in this.aEnts){
        this.aEnts[iEnt].draw(oCtx,x,y); 
     }
-
 	},
+  
+  getGravity: function(oCoord){
+    return this.Gravity;
+  },
+  
+  getFriction: function(oCoord){
+    return this.Friction; 
+  },
 
   addEnt: function(oEnt){
     this.aEnts.push(oEnt);

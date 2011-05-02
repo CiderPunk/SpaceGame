@@ -1,17 +1,13 @@
 var Entity = PClass.create({
-	X:0,
-	Y:0,
-	dX:0,
-	dY:0,
-
-	init:function(x,y){
-    X=x;
-    Y=y;
-	},
+  Pos:new Coord(0,0),
+	Speed: new Coord(0,0),
+  
+	init:function(oCoord){
+    this.Pos = oCoord;
+  },
 
 	update:function(oMap){
-		X+=dX;
-		Y+=dY;
+		Pos = Pos.add(Speed);
 	},
   
 	draw: function(oCtx,xoffs,yoffs){
