@@ -27,11 +27,37 @@ var Player = Entity.extend({
     else{
       oForce = new Coord();
     }
-    oForce = oForce.add(oMap.getGravity(this.Pos));
+    //oForce = oForce.add(oMap.getGravity(this.Pos));
     oForce = oForce.sub(this.Speed.mply(oMap.getFriction(this.Pos)));
-    var Acc = oForce.div(this.mass);
+    var Acc = oForce.div(this.mass).add(oMap.getGravity(this.Pos));
     this.Speed = this.Speed.add(Acc); 
     this.Pos = this.Pos.add(this.Speed);
+    
+    //collision check
+    if (this.Pos.X > oMap.Width){
+      this.Pos.X = oMap.Width;
+      //rebound
+      this.Speed.X *= -1;
+    }
+    
+    if (this.Pos.X < 0){
+      this.Pos.X = 0;
+      //rebound
+      this.Speed.X *= -1;
+    }
+    
+    if (this.Pos.Y > oMap.Height){
+      this.Pos.Y = oMap.Height;
+      //rebound
+      this.Speed.Y *= -1;
+    }
+    
+    if (this.Pos.Y < 0){
+      this.Pos.Y = 0;
+      //rebound
+      this.Speed.Y *= -1;
+    }
+    
     
 	},
   

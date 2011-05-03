@@ -18,7 +18,9 @@ function Coord(iX, iY){
     return new Coord(this.X * iVal, this.Y * iVal);
   };
  
-
+  this.mag = function(){
+   return Math.sqrt((this.X * this.X) + (this.Y * this.Y));
+  };
 }  
 
 

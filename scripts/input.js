@@ -1,6 +1,10 @@
 var InputMan = new function(){
   var oState = {};
   var oKeyConfig = {};
+  var eOutput = null;
+  
+  
+  
   
   var doKeyUp = function(e){
     var sFunc = oKeyConfig[e.keyCode];
@@ -18,10 +22,17 @@ var InputMan = new function(){
       }   
       oState[sFunc] = true;
     }
+    if (eOutput !== null){
+      eOutput.innerHTML = e.keyCode;
+    }
   };
   
   window.addEventListener('keydown', doKeyDown, true);
   window.addEventListener('keyup', doKeyUp,true);
+
+  this.setOutput = function(sId){
+    eOutput = document.getElementById(sId);
+  };
 
 
   this.setKey = function(iKeyCode, sFunc){

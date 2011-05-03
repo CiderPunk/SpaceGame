@@ -5,14 +5,6 @@ function Game(sCanvasName){
 
 	var iDisplayWidth = oCtx.width;
 	var iDisplayHeight = oCtx.height;
-
-  /*
-  //create back canvas - not sure if nescesary
-  var oBackCanv = document.createElement('canvas');
-	oBackCanv.width = oCanv.width;
-	oBackCanv.height = oCanv.height;
-	oBCtx = oBackCanv.getContext('2d');
-*/
 	var oMap;
 
 	this.setMap = function(oNewMap){
@@ -23,7 +15,6 @@ function Game(sCanvasName){
 
 	this.timer = setInterval(function(){self.drawFrame(); }, 1000 / Global.Fps);
 
-//test
 
 var i = 0;
 
@@ -31,23 +22,15 @@ var i = 0;
 		if (ResMan.isReady()){
       if (oMap !== undefined){
         oMap.update();
-        oMap.draw(oCtx, 0,0);
-        //oFrame.drawRot(oCtx, 50,50,i);
+        oMap.draw(oCtx);
       }
 
 			i+=0.01;
-			//draw stuff
-			this.endFrame();
+      FrameCount.addFrame();
 		}
 
 	};
 
 
-
-	this.endFrame = function(){
-	//copy back canvas to front
-  //	oFctx.drawImage(oBCtx,0,0);
-    FrameCount.addFrame();
-  };
 
 }

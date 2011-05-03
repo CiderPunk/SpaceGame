@@ -13,6 +13,7 @@ var Debug = new function(){
 		if (eOutput)
 		{
 			eOutput.innerHTML += '<br/>' + sMessage;
+      eOutput.scrollTop = eOutput.scrollHeight;
 		}
 	};
 };

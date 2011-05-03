@@ -35,8 +35,8 @@ window.onload=function(){
   InputMan.setKey(40,"down");
   InputMan.setKey(37,"left");
   InputMan.setKey(39,"right");
-  InputMan.setKey(32,"fire");  
-
+  InputMan.setKey(17,"fire");  
+  InputMan.setOutput("keycode");
 
 Debug.output("creating game");
 	var oGame = new Game('e');
@@ -44,6 +44,7 @@ Debug.output("creating game");
   var oPlayer = new Player(new Coord(200,200));
 	
   oMap.addEnt(oPlayer);
+  oMap.setFollow(oPlayer);
   oGame.setMap(oMap);
 }
 
@@ -54,14 +55,16 @@ Debug.output("creating game");
 			html{font-family:verdana, arial; font-size:70%;}
       canvas { border: 1px solid black;	} 
 			div#debug{width:336px; height:400px; margin-left:1px; overflow:auto; border:1px solid #000; margin-top:1em; 			padding:4px; float:left;}
-			div#counter{width:40px; float:right; bordeR:1px solid #000; padding:4px;}
-    </style>  
+			div#counter{width:40px; float:right; border:1px solid #000; padding:4px; margin:1px;}
+      div#keycode{width:40px; float:right;  border:1px solid #000; padding:4px; margin:1px;}
+      </style>  
   </head>  
   <body>  
 
 <div id="counter">fps</div>
+<div id="keycode">key</div>
 
-<canvas id="e" width="640" height="480" style="float:left"></canvas>  
+  <canvas id="e" width="1024" height="800" style="float:left"></canvas>  
 
 
   <div id="debug">
